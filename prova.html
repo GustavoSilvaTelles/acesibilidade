@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="text" href="js/JavaScript.js">
+</head>
+
+<body>
+    <div id="saltar" alt>
+        <a href="#acess">Saltar para os Comandos acessibilidade</a>
+        <a href="#OQueèAcessbilidade">Saltar para O que é Acessibilidade</a>
+        <a href="#PorQueAcessibilidade">Saltar para Por que Acessibilidade na Web é importante?</a>
+        <a href="#Entendimento">Saltar para Entendimento das leis e padrões</a>
+
+    </div>
+    <nav>
+        <!--Lista interminável de links de navegação-->
+    </nav>
+    <p>
+    <div class="BarraDeNavegacao">
+        <div class="Inicio">
+            <a href="#" accesskey="1">Inicio</a>
+        </div>
+        <div class="Leis">
+            <a href="paginas.html" accesskey="2">Leis</a>
+        </div>
+        
+    </div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <div class="ConteudoDaPagina">
+        <div class="Banner"><img src="img/capa-blog-post-acessibilidade-na-web.png" alt="Banner informativo de acessibilidade na WEB" width="100%" height="800px"></div>
+        <div class="Texto1">
+            <vlibraswidget class="vw-text vw-text-active">
+                <div id="OQueèAcessbilidade">
+                    <h1>O que é Acessibilidade na Web?</h1>
+                </div>
+                <p>O termo acessibilidade significa “ter acesso”. Ele se refere à inclusão de pessoas com algum tipo de dificuldade motora ou deficiência nos espaços urbanos. A adaptação dos edifícios visa eliminar barreiras ao acesso dessas pessoas e, assim, garantir conforto e segurança para que elas consigam usufruir dos benefícios desses locais.
+
+                    O tema acessibilidade é centro de debate em arquitetura e urbanismo. A preocupação em fornecer construções que incluam toda a população é crescente, assim como promover a adaptação de espaços já existentes. A arquitetura consciente busca projetar espaços que atendam a todas as demandas sem comprometer a estética.
+                    
+                    No projeto, a acessibilidade se transforma em barras de apoio, sinalização, rampas, revestimentos seguros e vários outros itens que tenham o objetivo comum de garantir a segurança e autonomia das pessoas.</p>
+
+                <div id="PorQueAcessibilidade">
+                    <h1>Por que Acessibilidade na Web é importante?</h1>
+                </div>
+                
+                <div id="Entendimento">
+                    <h1>Leis e padrões</h1>
+                </div>
+                <p>
+                    A Lei 10.098, também conhecida como lei de acessibilidade, foi homologada em 2000 e estabelece normas gerais e critérios básicos para a promoção da acessibilidade das pessoas portadoras de deficiência ou com mobilidade reduzida. Em outras palavras, ela visa garantir o direito dessas pessoas de usufruir dos mesmos privilégios que as demais, da forma mais independente possível.
+
+                    Sendo assim, tem caráter inclusivo e suas determinações têm o objetivo de promover a igualdade de direitos. Ela se aplica a qualquer tipo e espaço de uso público ou aqueles que sejam privados, porém de uso coletivo. Entre os principais estão:
+                    
+                    ruas, calçadas e espaços urbanos;
+                    edificações públicas;
+                    bares e restaurantes;
+                    casas de espetáculos, teatros e afins.
+                    Em 2015 foi aprovado o estatuto da pessoa com deficiência, por meio da Lei 13.146. Atualmente é a lei mais completa a respeito do assunto e abarca tanto as questões da acessibilidade física e informacional, quanto as punições a quem descumpre suas determinações. No que se refere às especificações técnicas, a NBR 9050 normatiza os padrões ideais de acessibilidade.
+                </p>
+
+            </vlibraswidget>
+        </div>
+        <div class="Oquee"></div>
+        <div class="footer">
+            <div id="acess"></div>
+            <label for="input-dark-mode">
+                <a class="button" accesskey="n">Modo escuro (ALT + N)</a>
+            </label>
+            <input type="checkbox" id="input-dark-mode">
+            </p>
+            <div id="conteudos" tabindex="0"></div>
+            Para aumentar ou diminuir a fonte (ALT +) ou (ALT -)
+            <div class="btn-container">
+                <button name="increase-font" id="increase-font" title="Aumentar fonte" accesskey="+">A +</button>
+                <button name="decrease-font" id="decrease-font" title="Diminuir fonte" accesskey="-">A -</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var elementBody = document.querySelector('body');
+            var elementBtnIncreaseFont = document.getElementById('increase-font');
+            var elementBtnDecreaseFont = document.getElementById('decrease-font');
+            // Padrão de tamanho, equivale a 100% do valor definido no Body
+            var fontSize = 100;
+            // Valor de incremento ou decremento, equivale a 10% do valor do Body
+            var increaseDecrease = 10;
+
+            // Evento de click para aumentar a fonte
+            elementBtnIncreaseFont.addEventListener('click', function (event) {
+                fontSize = fontSize + increaseDecrease;
+                elementBody.style.fontSize = fontSize + '%';
+            });
+
+            // Evento de click para diminuir a fonte
+            elementBtnDecreaseFont.addEventListener('click', function (event) {
+                fontSize = fontSize - increaseDecrease;
+                elementBody.style.fontSize = fontSize + '%';
+            });
+        }
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeStorage = localStorage.getItem('dark-mode')
+            const html = document.querySelector('html')
+            const inputDarkMode = document.getElementById('input-dark-mode')
+
+            if (darkModeStorage) {
+                html.setAttribute("dark", "true")
+            }
+
+            inputDarkMode.addEventListener('change', () => {
+                if (inputDarkMode.checked) {
+                    html.setAttribute("dark", "true")
+                    localStorage.setItem('dark-mode', true)
+                } else {
+                    html.removeAttribute("dark")
+                    localStorage.removeItem('dark-mode')
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
+© 2020 GitHub, Inc.
+
